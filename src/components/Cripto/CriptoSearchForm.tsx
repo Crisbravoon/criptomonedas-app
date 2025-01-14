@@ -19,6 +19,7 @@ const CriptoSearchForm = () => {
 
 
 
+
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
 
         e.preventDefault();
