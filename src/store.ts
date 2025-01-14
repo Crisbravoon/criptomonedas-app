@@ -1,33 +1,18 @@
 
 import { create } from "zustand";
-import axios from "axios";
 
-import { CryptoCurrenciesResponseSchema } from "./schema/crypto-schema";
-import { CryptoCurrency } from "./types";
+import { getCryptoPrice, getCryptos } from "./services/CryptoServices";
+import { devtools } from "zustand/middleware";
+import { CryptoCurrency, Pair } from "./types";
 
 type CriptoStore = {
-
     cryptoCurrencies: CryptoCurrency[],
     fetchCryptos: () => Promise<void>,
+    fetchData: (pair: Pair) => Promise<void>,
 };
 
 
-const getCryptos = async () => {
-
-    try {
-        const url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=30&tsym=USD'
-        const { data: { Data } } = await axios.get(url);
-
-        const resultData = CryptoCurrenciesResponseSchema.safeParse(Data);
-
-        return resultData.data;
-
-    } catch (error) {
-        throw new Error('No se encontraron las criptomonedas')
-    }
-};
-
-export const useCryptoStore = create<CriptoStore>((set) => ({
+export const useCryptoStore = create<CriptoStore>()(devtools((set) => ({
 
     cryptoCurrencies: [],
 
@@ -37,7 +22,13 @@ export const useCryptoStore = create<CriptoStore>((set) => ({
 
         set(() => ({
             cryptoCurrencies
-        }))
+        }));
+    },
+
+    fetchData: async (pair) => {
+
+        await getCryptoPrice(pair);
+
     }
 
-}));
+})));

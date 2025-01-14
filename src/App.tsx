@@ -1,17 +1,22 @@
 
 import { useEffect } from "react";
 
+import { Bounce } from "react-toastify/unstyled"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import CriptoSearchForm from "./components/Cripto/CriptoSearchForm"
 import { useCryptoStore } from "./store"
 
 
 function App() {
 
-
-  const { fetchCryptos } = useCryptoStore()
+  const { fetchCryptos } = useCryptoStore();
 
   useEffect(() => {
-    fetchCryptos()
+    
+    fetchCryptos();
+
   }, []);
 
   return (
@@ -23,6 +28,10 @@ function App() {
         <div className="content">
           <CriptoSearchForm />
         </div>
+        <ToastContainer
+        position="top-center"
+        transition={Bounce}
+        theme="colored" />
       </div>
     </>
   )
