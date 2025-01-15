@@ -5,6 +5,7 @@ import { Bounce } from "react-toastify/unstyled"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
+import CriptoPriceDisplay from "./components/Cripto/CriptoPriceDisplay";
 import CriptoSearchForm from "./components/Cripto/CriptoSearchForm"
 import { useCryptoStore } from "./store"
 
@@ -27,6 +28,7 @@ function App() {
         </h1>
         <div className="content">
           <CriptoSearchForm />
+          <CriptoPriceDisplay/>
         </div>
         <ToastContainer
         position="top-center"

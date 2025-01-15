@@ -4,11 +4,11 @@
   --black: #182339;
 }
 
-html{
+html {
   font-size: 62.5%;
 }
 
-body{
+body {
   background-image: url('./bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,26 +18,26 @@ body{
   font-size: 2rem;
 }
 
-.container{
+.container {
   max-width: 60rem;
   width: 95%;
   margin: 0 auto;
 }
 
-.app-title{
+.app-title {
   font-family: 3.8rem;
   margin-top: 5rem;
   color: var(--white);
   line-height: .8;
 }
 
-.app-title span{
+.app-title span {
   display: block;
   color: var(--primary);
   font-size: 4.4rem;
 }
 
-.content{
+.content {
   margin-top: 5rem;
   padding: 6rem 2rem;
   background-color: var(--white);
@@ -46,17 +46,18 @@ body{
 }
 
 
-.form, .field{
+.form,
+.field {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.form label{
+.form label {
   color: var(--black);
 }
 
-.form select{
+.form select {
   background-color: #ECEBEB;
   border: none;
   padding: 1rem;
@@ -64,7 +65,7 @@ body{
   font-size: 1.8rem;
 }
 
-.form [type="submit"]{
+.form [type="submit"] {
   background-color: var(--primary);
   color: var(--black);
   border: none;
@@ -75,6 +76,34 @@ body{
   margin-top: 2rem;
 }
 
-.form [type="submit"]:hover{
+.form [type="submit"]:hover {
   background-color: #0CB387;
+}
+
+.result-wrapper {
+  margin-top: 5rem;
+}
+
+.result-wrapper h2 {
+  text-align: center;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.result img {
+  width: 180px;
+}
+.result p {
+
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+}
+
+.result span{
+  font-weight: 700;
 }

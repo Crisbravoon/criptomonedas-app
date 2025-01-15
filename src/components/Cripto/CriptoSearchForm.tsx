@@ -17,9 +17,6 @@ const CriptoSearchForm = () => {
         criptoCurrency: ''
     });
 
-
-
-
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
 
         e.preventDefault();

@@ -27,16 +27,15 @@ export const getCryptos = async () => {
 export const getCryptoPrice = async (pair: Pair) => {
 
     try {
+
         const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${pair.criptoCurrency}&tsyms=${pair.currency}`
 
         const { data: { DISPLAY } } = await axios.get(url);
 
         const result = CryptoPriceSchema.safeParse(DISPLAY[pair.criptoCurrency][pair.currency]);
-
-        console.log(result);
         
         if(result.success) {
-            console.log( result.data);
+            return result.data;
         }
 
     } catch (error) {
